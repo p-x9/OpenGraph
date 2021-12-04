@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4204E98A275B100100AB31CC /* SiteMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204E989275B100100AB31CC /* SiteMetadata.swift */; };
+		4204E98D275B134D00AB31CC /* TwitterMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204E98C275B134D00AB31CC /* TwitterMetadata.swift */; };
 		6A7310FF1E279D5D00CE1756 /* example3.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A7310FB1E279C7E00CE1756 /* example3.com.html */; };
 		7B24FB191D3B2583005275B0 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B24FB181D3B2583005275B0 /* OpenGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B24FB201D3B2583005275B0 /* OpenGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B24FB151D3B2583005275B0 /* OpenGraph.framework */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4204E989275B100100AB31CC /* SiteMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteMetadata.swift; sourceTree = "<group>"; };
+		4204E98C275B134D00AB31CC /* TwitterMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterMetadata.swift; sourceTree = "<group>"; };
 		6A7310FB1E279C7E00CE1756 /* example3.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example3.com.html; sourceTree = "<group>"; };
 		7B24FB151D3B2583005275B0 /* OpenGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B24FB181D3B2583005275B0 /* OpenGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGraph.h; sourceTree = "<group>"; };
@@ -66,6 +70,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4204E98B275B12BC00AB31CC /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				7B24FB421D3B27E5005275B0 /* OpenGraphMetadata.swift */,
+				4204E989275B100100AB31CC /* SiteMetadata.swift */,
+				4204E98C275B134D00AB31CC /* TwitterMetadata.swift */,
+			);
+			path = Metadata;
+			sourceTree = "<group>";
+		};
 		7B24FB0B1D3B2583005275B0 = {
 			isa = PBXGroup;
 			children = (
@@ -88,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				7B24FB181D3B2583005275B0 /* OpenGraph.h */,
+				4204E98B275B12BC00AB31CC /* Metadata */,
 				7B24FB411D3B27E5005275B0 /* OpenGraph.swift */,
-				7B24FB421D3B27E5005275B0 /* OpenGraphMetadata.swift */,
 				7B24FB431D3B27E5005275B0 /* OpenGraphParseError.swift */,
 				7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */,
 				7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */,
@@ -252,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B24FB461D3B27E5005275B0 /* OpenGraph.swift in Sources */,
+				4204E98A275B100100AB31CC /* SiteMetadata.swift in Sources */,
 				7B24FB4A1D3B27E5005275B0 /* OpenGraphResponseError.swift in Sources */,
+				4204E98D275B134D00AB31CC /* TwitterMetadata.swift in Sources */,
 				7B24FB491D3B27E5005275B0 /* OpenGraphParser.swift in Sources */,
 				7B24FB481D3B27E5005275B0 /* OpenGraphParseError.swift in Sources */,
 				7B24FB471D3B27E5005275B0 /* OpenGraphMetadata.swift in Sources */,

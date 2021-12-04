@@ -2,7 +2,7 @@ import Foundation
 
 public struct OpenGraph {
     
-    public let source: [OpenGraphMetadata: String]
+    public let source: [String: String]
     
     @discardableResult
     public static func fetch(url: URL, headers: [String: String]? = nil, configuration: URLSessionConfiguration = .default, completion: @escaping (Result<OpenGraph, Error>) -> Void) -> URLSessionDataTask {
@@ -82,7 +82,15 @@ public struct OpenGraph {
         source = parser.parse(htmlString: htmlString)
     }
     
-    public subscript (attributeName: OpenGraphMetadata) -> String? {
+    public subscript (ogpAttributeName: OpenGraphMetadata) -> String? {
+        return source["og:" + ogpAttributeName.rawValue]
+    }
+    
+    public subscript (attributeName: SiteMetadata) -> String? {
+        return source[attributeName.rawValue]
+    }
+    
+    public subscript (attributeName: String) -> String? {
         return source[attributeName]
     }
 }

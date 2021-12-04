@@ -1,11 +1,11 @@
 import Foundation
 
 public protocol OpenGraphParser {
-    func parse(htmlString: String) -> [OpenGraphMetadata: String]
+    func parse(htmlString: String) -> [String: String]
 }
 
 extension OpenGraphParser {
-    func parse(htmlString: String) -> [OpenGraphMetadata: String] {
+    func parse(htmlString: String) -> [String: String] {
         // extract meta tag
         let metatagRegex  = try! NSRegularExpression(
             pattern: "<meta(?:\".*?\"|\'.*?\'|[^\'\"])*?>",
@@ -20,7 +20,7 @@ extension OpenGraphParser {
 
         // prepare regular expressions to extract og property and content.
         let propertyRegexp = try! NSRegularExpression(
-            pattern: "\\sproperty=(?:\"|\')*og:([a-zA_Z:]+)(?:\"|\')*",
+            pattern: "\\s(property|name)=(?:\"|\')*([a-zA_Z:]+)(?:\"|\')*",
             options: []
         )
         let contentRegexp = try! NSRegularExpression(
@@ -30,7 +30,7 @@ extension OpenGraphParser {
         
         // create attribute dictionary
         let nsString = htmlString as NSString
-        let attributes = metaTagMatches.reduce([OpenGraphMetadata: String]()) { (attributes, result) -> [OpenGraphMetadata: String] in
+        let attributes = metaTagMatches.reduce([String: String]()) { (attributes, result) -> [String: String] in
             var copiedAttributes = attributes
             
             let property = { () -> (name: String, content: String)? in
@@ -56,8 +56,8 @@ extension OpenGraphParser {
                 
                 return (name: property, content: content)
             }()
-            if let property = property, let metadata = OpenGraphMetadata(rawValue: property.name) {
-                copiedAttributes[metadata] = property.content
+            if let property = property {
+                copiedAttributes[property.name] = property.content
             }
             return copiedAttributes
         }
