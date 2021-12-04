@@ -82,7 +82,7 @@ public struct OpenGraph {
         source = parser.parse(htmlString: htmlString)
     }
     
-    public subscript (ogpAttributeName: OpenGraphMetadata) -> String? {
+    public subscript (og ogpAttributeName: OpenGraphMetadata) -> String? {
         return source["og:" + ogpAttributeName.rawValue]
     }
     
@@ -90,7 +90,7 @@ public struct OpenGraph {
         return source[attributeName.rawValue]
     }
     
-    public subscript (attributeName: String) -> String? {
+    public subscript (raw attributeName: String) -> String? {
         return source[attributeName]
     }
 }
